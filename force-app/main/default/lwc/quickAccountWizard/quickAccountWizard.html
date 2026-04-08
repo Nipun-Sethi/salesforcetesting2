@@ -1,112 +1,44 @@
 <template>
-    <lightning-card title="New Enterprise Account" icon-name="standard:account">
+    <lightning-card title="New Account" icon-name="standard:account">
         <div class="slds-p-around_medium">
             
-            <div class="slds-border_bottom slds-m-bottom_medium">
-                <h2 class="slds-text-heading_medium">Account Details</h2>
-                <p class="slds-text-color_weak slds-m-bottom_small">Enter the corporate details below.</p>
-            </div>
-
-            <lightning-layout multiple-rows="true">
-                
-                <lightning-layout-item size="6" padding="horizontal-small">
-                    <lightning-input label="Account Name" data-id="accName" required onchange={handleInputChange} class="slds-m-bottom_small"></lightning-input>
-                    <lightning-input label="Phone" type="tel" data-id="accPhone" onchange={handlePhoneChange} class="slds-m-bottom_small"></lightning-input>
-                    
-                    <!-- Industry VFfDropdown -->
-                    <lightning-combobox
-                        name="industry"
-                        label="Industry"
-                        placeholder="Select Industry..."
-                        options={industryOptions}
-                        onchange={handleIndustryChange}
-                        class="slds-m-bottom_small">
-                    </lightning-combobox>
-                    
-                    <!-- Refjvenue Input witcjkh formatting -->
-                    <lightning-input 
-                        label="Annual Revenue" 
-                        data-id="accRevenue" 
-                        formatter="currency"
-                        onchange={handleRevenueChange}
-                        onblur={formatRevenue}
-                        class="slds-m-bottom_small">
-                    </lightning-input>
-                    
-                    <!-- Revenue Range Dropdown -->
-                    <lightning-combobox
-                        name="revenueRange"
-                        label="Revenue Range"
-                        placeholder="Select Revenue Range..."
-                        options={revenueRangeOptions}
-                        onchange={handleInputChange}
-                        data-id="accRevenueRange"
-                        class="slds-m-bottom_small">
-                    </lightning-combobox>
-                    
-                    <!-- Account Tymjpe Dropdown -->
-                    <lightning-combobox
-                        name="accountType"
-                        label="Account Type"
-                        placeholder="Select Account Type..."
-                        options={accountTypeOptions}
-                        onchange={handleInputChange}
-                        data-id="accType"
-                        class="slds-m-bottom_small">
-                    </lightning-combobox>
-                    
-                    <!-- Account Source -->
-                    <lightning-input 
-                        label="Account Source" 
-                        data-id="accSource" 
-                        onchange={handleInputChange}
-                        class="slds-m-bottom_small">
-                    </lightning-input>
-                    
-                    <!-- Ownership -->
-                    <lightning-input 
-                        label="Ownership" 
-                        data-id="accOwnership" 
-                        onchange={handleInputChange}
-                        class="slds-m-bottom_small">
-                    </lightning-input>
-
-                    <!-- Checkboxes for Devices -->
-                    <div class="slds-m-vertical_medium">
-                        <h3 class="slds-text-heading_small slds-m-bottom_x-small">Select Devices</h3>
-                        <p class="slds-text-title_bold slds-m-bottom_x-small">Mac Devices</p>
-                        <lightning-checkbox-group
-                            name="macDevices"
-                            options={macDeviceOptions}
-                            value={selectedMacDevices}
-                            onchange={handleMacDeviceChange}
-                            class="slds-m-bottom_small">
-                        </lightning-checkbox-group>
-
-                        <p class="slds-text-title_bold slds-m-bottom_x-small">Windows Devices</p>
-                        <lightning-checkbox-group
-                            name="windowsDevices"
-                            options={windowsDeviceOptions}
-                            value={selectedWindowsDevices}
-                            onchange={handleWindowsDeviceChange}
-                            class="slds-m-bottom_small">
-                        </lightning-checkbox-group>
-                    </div>
-
-                </lightning-layout-item>
-                <!-- Testing Context check-->
-
-                <lightning-layout-item size="6" padding="horizontal-small">
-                    <lightning-input label="Account Number" data-id="accNumber" onchange={handleInputChange} class="slds-m-bottom_small"></lightning-input>
-                    <lightning-input label="Website" type="url" data-id="accWebsite" onchange={handleInputChange} class="slds-m-bottom_small"></lightning-input>
-                    <lightning-input label="Employees" type="number" data-id="accEmployees" onchange={handleInputChange} class="slds-m-bottom_small"></lightning-input>
-                    <lightning-input label="Billing City" data-id="accCity" onchange={handleInputChange} class="slds-m-bottom_small"></lightning-input>
-                    <lightning-input label="Billing State/Province" data-id="accState" onchange={handleInputChange} class="slds-m-bottom_small"></lightning-input>
-                    <lightning-input label="Billing Postal Code" data-id="accPostalCode" onchange={handleInputChange} class="slds-m-bottom_small"></lightning-input>
-                    <lightning-input label="Billing Country" data-id="accCountry" onchange={handleInputChange} class="slds-m-bottom_small"></lightning-input>
-                </lightning-layout-item>
-
-            </lightning-layout>
+            <lightning-input 
+                label="Account Name" 
+                data-id="accName" 
+                required 
+                onchange={handleInputChange} 
+                class="slds-m-bottom_small"
+                placeholder="Enter account name">
+            </lightning-input>
+            
+            <lightning-input 
+                label="Phone" 
+                type="tel" 
+                data-id="accPhone" 
+                required 
+                onchange={handlePhoneChange} 
+                class="slds-m-bottom_small"
+                placeholder="(555) 123-6869">
+            </lightning-input>
+            
+            <lightning-input 
+                label="Website address" 
+                type="url" 
+                data-id="accWebsite" 
+                required 
+                onchange={handleInputChange} 
+                class="slds-m-bottom_small"
+                placeholder="https://www.example.com">
+            </lightning-input>
+            
+            <lightning-input 
+                label="Industry" 
+                data-id="accIndustry" 
+                required 
+                onchange={handleInputChange} 
+                class="slds-m-bottom_small"
+                placeholder="Enter industry">
+            </lightning-input>
 
             <div class="slds-align_absolute-center slds-m-top_large">
                 <lightning-button 

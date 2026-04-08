@@ -94,7 +94,8 @@ export default class QuickAccountWizard extends LightningElement {
         macDevices: '',
         windowsDevices: ''
     };
-
+    
+    //test
     // REMOVED: get industryOptions() {...} is no longer needed
 
     handleInputChange(event) {
@@ -140,7 +141,7 @@ export default class QuickAccountWizard extends LightningElement {
     handleIndustryChange(event) {
         this.formData.industry = event.detail.value;
         
-        // Auto-populate account type based on industry
+        // Auto-populate account type / based on industry
         if (event.detail.value === 'Technology' || event.detail.value === 'Finance') {
             this.formData.type = 'Prospect';
             const typeCombo = this.template.querySelector('lightning-combobox[name="accountType"]');
@@ -149,6 +150,8 @@ export default class QuickAccountWizard extends LightningElement {
             }
         }
     }
+    //test
+    //yo test
 
     handleRevenueChange(event) {
         this.formData.revenue = event.target.value;
@@ -273,5 +276,53 @@ export default class QuickAccountWizard extends LightningElement {
         .catch(error => {
             this.errorMessage = 'Error: ' + (error.body ? error.body.message : error.message);
         });
+    }
+
+    handleCancel() {
+        // Clear all form data
+        this.formData = {
+            name: '',
+            accNumber: '',
+            phone: '',
+            website: '',
+            industry: '',
+            revenue: '', 
+            revenueRange: '',
+            employees: null,
+            city: '',
+            state: '',
+            postalCode: '',
+            country: '',
+            type: '',
+            source: '',
+            description: '',
+            primaryContact: '',
+            contactTitle: '',
+            contactEmail: '',
+            contactPhone: '',
+            fax: '',
+            rating: '',
+            customerPriority: '',
+            slaExpiration: '',
+            ticker: '',
+            ownership: '',
+            sicCode: '',
+            yearStarted: '',
+            macDevices: '',
+            windowsDevices: ''
+        };
+        
+        // Clear all form fields
+        this.template.querySelectorAll('lightning-input, lightning-combobox, lightning-checkbox-group').forEach(input => {
+            input.value = null;
+        });
+        
+        // Clear checkbox selections
+        this.selectedMacDevices = [];
+        this.selectedWindowsDevices = [];
+        
+        // Clear messages
+        this.successMessage = '';
+        this.errorMessage = '';
     }
 }
